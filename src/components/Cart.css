@@ -114,3 +114,26 @@
   border-radius: 10px;
   font-size: 0.8em;
 }
+
+/* Close button styles */
+.close-cart-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5em;
+  color: #999;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-cart-btn:hover {
+  color: #333;
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 50%;
+}

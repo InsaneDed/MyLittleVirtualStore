@@ -43,14 +43,15 @@ function App() {
 
   return (
     <>
-      {/* Cart Toggle Button */}
-      <button
-        className="cart-toggle"
-        onClick={() => setCartOpen(!cartOpen)}
-        aria-label="Toggle cart"
-      >
-        🛒 Корзина ({cartItems.reduce((sum, item) => sum + item.quantity, 0)})
-      </button>
+      {!cartOpen && (
+        <button
+          className="cart-toggle"
+          onClick={() => setCartOpen(true)}
+          aria-label="Toggle cart"
+        >
+          🛒 Корзина ({cartItems.reduce((sum, item) => sum + item.quantity, 0)})
+        </button>
+      )}
 
       {/* Main Content */}
       <section id="center">
@@ -62,13 +63,15 @@ function App() {
         <ProductList onAddToCart={addToCart} />
       </section>
 
-      {/* Cart */}
-      <Cart
-        cartItems={cartItems}
-        onRemoveItem={removeFromCart}
-        onClearCart={clearCart}
-        className={cartOpen ? 'cart open' : 'cart'}
-      />
+      {cartOpen && (
+        <Cart
+          cartItems={cartItems}
+          onRemoveItem={removeFromCart}
+          onClearCart={clearCart}
+          onClose={() => setCartOpen(false)}
+          className="cart open"
+        />
+      )}
     </>
   );
 }
